@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .checked {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>liste de taches a faire</h1>
+    <input type="text" id="text" placeholder="Nouvelle tache" />
+    <button id="btn" onclick="ajouter()">ajouter</button>
+
+    <ul id="liste">
+      <!-- <li><input type="checkbox" />test</li>
+      <li><input type="checkbox" />test</li> -->
+      
+    </ul>
+
+    <script>
+        function ajouter() {
+            // create li element
+            let tache = document.createElement("li");
+    
+            // add content
+            let text = document.getElementById("text").value;
+            tache.innerHTML = `<input type="checkbox" onclick="check(this)"/>${text}`;
+    
+            // add li to the list
+            document.getElementById("liste").appendChild(tache);
+    
+            // clear the input field
+            document.getElementById("text").value = "";
+          }
+
+      function check(box) {
+        if (box.checked) {
+          box.parentElement.classList.add("checked");
+        } else {
+          box.parentElement.classList.remove("checked");
+        }
+      }
+    </script>
+  </body>
+</html>
